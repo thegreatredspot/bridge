@@ -68,7 +68,16 @@ const rankSortOrder: Record<Card["rank"], number> = {
   A: 14,
 };
 
-const httpServer = createServer();
+const httpServer = createServer((req, res) => {
+  if (req.url === "/") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("SG Bridge Socket.IO server is running");
+    return;
+  }
+
+  res.writeHead(404);
+  res.end();
+});
 
 const io = new Server(httpServer, {
   cors: {
