@@ -6,7 +6,7 @@ import "./App.css";
 import { createDeck, dealCards, shuffleDeck } from "./game/deck";
 import type { Card, GameState, Play, PlayerId, Trump } from "./game/types";
 
-const socket = io("https://sg-bridge.onrender.com/", {
+const socket = io("https://sg-bridge.onrender.com", {
   autoConnect: false,
 });
 
